@@ -8,7 +8,8 @@ This is a solution to the [Contact form challenge on Frontend Mentor](https://ww
 
 ### Links
 
--   Live Site URL: [https://iambraga.github.io//contact-form](https://iambraga.github.io/contact-form)/
+-   Solution URL: [My solution page](https://www.frontendmentor.io/solutions/responsive-contact-form-page-html-css-js-ViEajFmP1c)
+-   Live Site URL: [https://iambraga.github.io/contact-form](https://iambraga.github.io/contact-form)/
 
 ## My process
 
