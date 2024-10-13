@@ -1,0 +1,286 @@
+@charset "UtF-8";
+
+@font-face {
+	font-family: "Karla-Regular";
+	src: url(../fonts/Karla-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Karla-Bold";
+	src: url(../fonts/Karla-Bold.ttf);
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+input,
+button,
+textarea {
+	font: inherit;
+}
+
+:root {
+	/* COLORS */
+	--CLR-PRIMARY: hsl(169, 82%, 27%);
+	--CLR-PRIMARY-LT: hsl(148, 38%, 91%);
+	--CLR-PRIMARY-DR: hsl(171, 83%, 14%);
+	--CLR-DANGER: hsl(0, 66%, 54%);
+
+	/* Neutral */
+	--CLR-BASE-LT: hsl(0, 0%, 100%);
+	--CLR-BASE-DK: hsl(186, 15%, 59%);
+	--CLR-BASE-DKR: hsl(188, 24%, 22%);
+
+	/* FONTS */
+	--FF-BASE: "Karla-Regular";
+	--FF-BASE-BOLD: "Karla-Bold";
+
+	/* BORDER */
+	--BORDER: 1px solid var(--CLR-BASE-DK);
+}
+
+/* TOAST NOTIFICATION ANIMATION */
+
+@keyframes fadein {
+	0% {
+		top: 0;
+		opacity: 0;
+	}
+	100% {
+		top: 30px;
+		opacity: 1;
+	}
+}
+
+@keyframes fadeout {
+	0% {
+		top: 30px;
+		opacity: 1;
+	}
+	100% {
+		top: 0;
+		opacity: 0;
+	}
+}
+
+/* UTILITY CLASSES */
+
+.offscreen {
+	position: absolute;
+	left: -10000px;
+}
+
+body {
+	font-family: var(--FF-BASE);
+	color: var(--CLR-BASE-DKR);
+	background: var(--CLR-PRIMARY-LT);
+	min-height: 100vh;
+	padding: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+main {
+	background: var(--CLR-BASE-LT);
+	width: 100%;
+	max-width: 700px;
+	padding: 2.5rem;
+	border-radius: 20px;
+	margin-block: 5rem;
+}
+
+main h2 {
+	font-family: var(--FF-BASE-BOLD);
+	margin-bottom: 2rem;
+	font-size: 1.8rem;
+}
+
+fieldset {
+	border: none;
+	margin-block: 1.4rem;
+}
+
+input,
+textarea {
+	width: 100%;
+	margin-block: 10px;
+	padding-left: 10px;
+	border-radius: 10px;
+	border: var(--BORDER);
+}
+
+textarea {
+	padding: 10px;
+	height: 90px;
+	resize: vertical;
+}
+
+.user-details input {
+	height: 45px;
+}
+
+.user-details input:focus {
+	border-color: var(--CLR-PRIMARY);
+}
+
+.user-details input:hover {
+	cursor: pointer;
+	border-color: var(--CLR-PRIMARY);
+}
+
+.username-box label {
+	width: 50%;
+}
+
+.query-type,
+.username-box {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 1rem;
+}
+
+.query-type legend {
+	margin-bottom: 0.9rem;
+}
+
+.query-type label {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 50%;
+	height: 45px;
+	margin-top: 10px;
+	padding: 1rem;
+	padding-left: 1.5rem;
+	border: var(--BORDER);
+	border-radius: 10px;
+}
+
+.query-type label:active {
+	border-color: var(--CLR-PRIMARY);
+	background-color: var(--CLR-PRIMARY-LT);
+}
+
+.query-type .circle {
+	appearance: none;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border: var(--BORDER);
+	border-radius: 50%;
+}
+
+.circle:checked {
+	border: none;
+	background: url(../images/icon-radio-selected.svg) center/contain no-repeat;
+}
+
+.user-terms {
+	margin-block: 1.5rem;
+}
+
+.user-terms label {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.user-terms p {
+	margin-top: 10px;
+}
+
+.user-terms .box {
+	appearance: none;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	margin-right: 18px;
+	border: var(--BORDER);
+	border-radius: 0;
+}
+
+.box:checked {
+	border: none;
+	background: url(../images/icon-checkbox-check.svg) center/contain no-repeat;
+}
+
+.btn {
+	cursor: pointer;
+	border: none;
+	width: 100%;
+	background: var(--CLR-PRIMARY);
+	color: var(--CLR-BASE-LT);
+	font-size: 1.1rem;
+	font-family: var(--FF-BASE-BOLD);
+	padding: 1rem;
+	border-radius: 10px;
+	transition: 0.4s;
+}
+
+.btn:hover {
+	background-color: var(--CLR-PRIMARY-DR);
+}
+
+.error,
+input.error:hover {
+	border-color: var(--CLR-DANGER);
+}
+
+.email-error,
+.required-error {
+	display: none;
+	color: var(--CLR-DANGER);
+	width: 100%;
+}
+
+.toast-msg {
+	background: var(--CLR-BASE-DKR);
+	color: var(--CLR-BASE-LT);
+	padding: 1.2rem;
+	border-radius: 10px;
+	z-index: -1;
+	visibility: hidden;
+	position: fixed;
+	top: 30px;
+}
+
+.toast-msg.show {
+	z-index: 1;
+	visibility: visible;
+	animation:
+		fadein 0.5s,
+		fadeout 0.5s 2.5s;
+}
+
+.toast-msg p {
+	font-size: 0.9rem;
+	margin-top: 0.5rem;
+}
+
+.toast-msg span {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+@media (max-width: 768px) {
+	.query-type,
+	.username-box {
+		display: block;
+	}
+	.username-box input,
+	.query-type label {
+		width: 100%;
+		margin-bottom: 1rem;
+	}
+	textarea {
+		min-height: 200px;
+	}
+}

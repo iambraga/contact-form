@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/styles/style.css" media="all" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./src/images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Contact form</title>
+    <script src="./src/js/main.js" defer></script>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
+  </head>
+  <body>
+    <main>
+      <h2>Contact Us</h2>
+
+      <form action="" autocomplete="on">
+        <fieldset class="user-details">
+          <legend class="offscreen">User details</legend>
+          <div class="username-box">
+            <label for="fName"
+              >First Name *
+              <input id="fName" type="text" name="fistName" />
+              <p class="required-error">This field is</p>
+            </label>
+            <label for="lName"
+              >Last Name *
+              <input id="lName" type="text" name="lastName" />
+              <p class="required-error">This field is required</p>
+            </label>
+          </div>
+          <label for="">Email Address *</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            title="Enter a valid email address"
+          />
+          <p class="required-error">This field is</p>
+        </fieldset>
+
+        <fieldset class="query-type">
+          <legend>Query Type *</legend>
+          <label for="enquiry">
+            <input id="enquiry" class="circle" type="radio" name="query" />
+            General Enquiry
+          </label>
+          <label for="support">
+            <input id="support" class="circle" type="radio" name="query" />
+            Support Request
+          </label>
+        </fieldset>
+        <p class="required-error">Please select a query type</p>
+
+        <fieldset>
+          <legend class="offscreen">User message</legend>
+          <label for="msg">Message *</label>
+          <textarea id="msg"></textarea>
+          <p class="required-error">This field is required</p>
+        </fieldset>
+
+        <fieldset class="user-terms">
+          <legend class="offscreen">contact by the team</legend>
+          <label for="terms-check">
+            <input id="terms-check" class="box" type="checkbox" name="terms" />
+            I consent to being contacted by the team *
+          </label>
+          <p class="required-error">
+            To submit this form, please consent to being contacted
+          </p>
+        </fieldset>
+
+        <button class="btn" type="submit">Submit</button>
+        <!-- <button class="btn" type="reset">reset</button> -->
+      </form>
+    </main>
+    <div id="res"></div>
+    <div class="toast-msg">
+      <span>
+        <img src="src/images/icon-success-check.svg" alt="check sign icon" />
+        <strong>Message Sent!</strong>
+      </span>
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  </body>
+</html>
